@@ -17,11 +17,17 @@ inner join instructor on instructor.id = class.instructor_id
 order by instructor_name;
 
 -- list of classes and students in each class
-select course.course_name, class.crn, instructor.instructor_name, student.id as student_id, student.class_id as class_id, student.student_name
+select course.course_name, student.class_id as class_id, class.crn, instructor.instructor_name, student.id as student_id, student.student_name
 from course
 inner join class on course.id = class.course_id
 inner join instructor on instructor.id = class.instructor_id
 inner join student on class.id = student.class_id
-order by course.course_name, crn;
+order by crn;
 
-update student set class_id=null
+-- list of classes not from the current semester with students and their grades
+select course.course_name, student.class_id as class_id, class.crn, instructor.instructor_name, student.id as student_id, student.student_name, grade.grade
+from course
+inner join class on course.id = class.course_id
+inner join instructor on instructor.id = class.instructor_id
+inner join student on class.id = student.class_id
+inner join grade on grade.student_id = 

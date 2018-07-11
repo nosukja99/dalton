@@ -108,6 +108,8 @@ insert into student (id, major_id, student_num, student_name, year_entry, user_n
 
 -- insert grades and students/classes
 
+truncate table grade;
+
 insert into grade(id, grade, class_id, student_id) values (1,"A",1,1);
 insert into grade(id, grade, class_id, student_id) values (2,"C",2,1);
 insert into grade(id, grade, class_id, student_id) values (3,"F",2,2);
@@ -137,34 +139,31 @@ insert into grade(id, grade, class_id, student_id) values (26,"B",25,5);
 insert into grade(id, grade, class_id, student_id) values (27,"B",26,7);
 insert into grade(id, grade, class_id, student_id) values (28,"B",27,7);
 
-alter table student add class_id bigint(20),
-add foreign key(class_id) references class(id);
-
-update student set class_id=1 where student_num="ST0001";
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (9,2,"password","Mario Speedwagon","ST0001","MSpeedwagon","2018",1);
-update student set class_id=3 where student_num="ST0002";
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (10,23,"password","Petey Cruiser","ST0002","PCruiser","2018",2);
-update student set class_id=4 where student_num="ST0003";
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (11,5,"password","Paul Molive","ST0003","PMolive","2017",3);
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (12,6,"password","Paul Molive","ST0003","PMolive","2017",3);
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (13,21,"password","Paul Molive","ST0003","PMolive","2017",3);
-update student set class_id=7 where student_num="ST0004";
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (14,8,"password","Anna Mull","ST0004","AMull","2013",4);
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (15,9,"password","Anna Mull","ST0004","AMull","2013",4);
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (16,24,"password","Anna Mull","ST0004","AMull","2013",4);
-update student set class_id=10 where student_num="ST0005";
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (17,11,"password","MPaige Turner","ST0005","PTurner","2015",5);
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (18,12,"password","MPaige Turner","ST0005","PTurner","2015",5);
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (19,25,"password","MPaige Turner","ST0005","PTurner","2015",5);
-update student set class_id=13 where student_num="ST0006";
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (20,14,"password","Bob Frapples","ST0006","BFrapples","2016",6);
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (21,15,"password","Bob Frapples","ST0006","BFrapples","2016",6);
-update student set class_id=16 where student_num="ST0007";
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (22,17,"password","Walter Melon","ST0007","WMelon","2017",7);
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (23,26,"password","Walter Melon","ST0007","WMelon","2017",7);
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (24,27,"password","Walter Melon","ST0007","WMelon","2017",7);
-update student set class_id=18 where student_num="ST0008";
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (25,19,"password","MGreta Life","ST0008","GLife","2017",8);
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (26,20,"password","MGreta Life","ST0008","GLife","2017",8);
-insert into student (id, class_id, password, student_name, student_num, user_name, year_entry, major_id) values (27,22,"password","MGreta Life","ST0008","GLife","2017",8);
+insert into student_class (class_id, student_id) values (1,1);
+insert into student_class (class_id, student_id) values (2,1);
+insert into student_class (class_id, student_id) values (3,2);
+insert into student_class (class_id, student_id) values (23,2);
+insert into student_class (class_id, student_id) values (4,3);
+insert into student_class (class_id, student_id) values (5,3);
+insert into student_class (class_id, student_id) values (6,3);
+insert into student_class (class_id, student_id) values (21,3);
+insert into student_class (class_id, student_id) values (7,4);
+insert into student_class (class_id, student_id) values (8,4);
+insert into student_class (class_id, student_id) values (9,4);
+insert into student_class (class_id, student_id) values (24,4);
+insert into student_class (class_id, student_id) values (10,5);
+insert into student_class (class_id, student_id) values (11,5);
+insert into student_class (class_id, student_id) values (12,5);
+insert into student_class (class_id, student_id) values (25,5);
+insert into student_class (class_id, student_id) values (13,6);
+insert into student_class (class_id, student_id) values (14,6);
+insert into student_class (class_id, student_id) values (15,6);
+insert into student_class (class_id, student_id) values (16,7);
+insert into student_class (class_id, student_id) values (117,7);
+insert into student_class (class_id, student_id) values (126,7);
+insert into student_class (class_id, student_id) values (127,7);
+insert into student_class (class_id, student_id) values (18,8);
+insert into student_class (class_id, student_id) values (119,8);
+insert into student_class (class_id, student_id) values (120,8);
+insert into student_class (class_id, student_id) values (122,8);
 

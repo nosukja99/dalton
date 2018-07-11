@@ -16,7 +16,7 @@ public class Grade {
     private Class aClass;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name ="student_id")
+    @JoinColumn(name ="student_num")
     private Student student;
 
 }
