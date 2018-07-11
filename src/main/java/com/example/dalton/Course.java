@@ -28,8 +28,7 @@ public class Course {
     @JoinColumn(name ="major_id")
     private Major major;
 
-    @ManyToMany(mappedBy = "courses")
-    private Set<Student> students;
+
 
     public long getId() {
         return id;
@@ -95,11 +94,5 @@ public class Course {
         this.major = major;
     }
 
-    public Set<Student> getStudents() {
-        return students;
-    }
 
-    public void setStudents(Set<Student> students) {
-        this.students = students;
-    }
 }

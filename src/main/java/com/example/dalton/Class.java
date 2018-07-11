@@ -34,6 +34,17 @@ public class Class {
     @OneToMany(mappedBy = "aClass", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<Grade> grades;
 
+    @ManyToMany(mappedBy = "classes")
+    private Set<Student> students;
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
+
     public Set<Grade> getGrades() {
         return grades;
     }
