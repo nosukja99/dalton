@@ -60,7 +60,7 @@ public class Instructor {
     }
 
     public void setEmployeeNum(long num) {
-        this.employeeNum = "em- "+ num;;
+        this.employeeNum = "em- "+ Long.toString(num);
     }
 
     public Department getDepartment() {
