@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+
+<table >
+    <tr>
+        <td>Course detail: </td>
+    </tr>
+    <tr>
+        <td>courseName </td>
+        <td>courseNum </td>
+        <td>courseDescription </td>
+        <td>credit </td>
+        <td>department </td>
+    </tr>
+
+    <!--<tr>-->
+    <div th:each="course : ${courses}">
+
+        <td><span th:text="${course.courseName}"></span></td>
+
+
+        <td><span th:text="${course.courseNum}"></span></td>
+
+
+        <td><span th:text="${course.courseDescription}"></span></td>
+
+
+        <td><span th:text="${course.credit}"></span></span></td>
+
+
+        <td><span th:text="${course.departmentName}"> Department </span></span></td>
+    </tr>
+    <tr>
+        <a th:href="@{/detail/{id}(id=${.id})}">Detail</a>
+
+
+    </tr>
+    </div>
+
+</table>
+
+</body>
+</html>
