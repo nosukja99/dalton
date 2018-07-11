@@ -106,6 +106,8 @@ insert into student (id, major_id, student_num, student_name, year_entry, user_n
 insert into student (id, major_id, student_num, student_name, year_entry, user_name, password) values (7,7,"ST0007","Walter Melon","2017","WMelon","password");
 insert into student (id, major_id, student_num, student_name, year_entry, user_name, password) values (8,8,"ST0008","MGreta Life","2012","GLife","password");
 
+-- insert grades and students/classes
+
 insert into grade(id, grade, class_id, student_id) values (1,"A",1,1);
 insert into grade(id, grade, class_id, student_id) values (2,"C",2,1);
 insert into grade(id, grade, class_id, student_id) values (3,"F",2,2);
@@ -135,35 +137,35 @@ insert into grade(id, grade, class_id, student_id) values (26,"B",25,5);
 insert into grade(id, grade, class_id, student_id) values (27,"B",26,7);
 insert into grade(id, grade, class_id, student_id) values (28,"B",27,7);
 
-update student add class_id bigint(20)
-foreign key(class_id) references class(id)
+alter table student add class_id bigint(20),
+add foreign key(class_id) references class(id);
 
-insert into student (class_id) values (1) where id=1;
-insert into student (class_id) values (2) where id=1;
-insert into student (class_id) values (3) where id=2;
-insert into student (class_id) values (3) where id=2;
-insert into student (class_id) values (23) where id=2;
-insert into student (class_id) values (4) where id=3;
-insert into student (class_id) values (5) where id=3;
-insert into student (class_id) values (6) where id=3;
-insert into student (class_id) values (21) where id=3;
-insert into student (class_id) values (7) where id=4;
-insert into student (class_id) values (8) where id=4;
-insert into student (class_id) values (9) where id=4;
-insert into student (class_id) values (24) where id=4;
-insert into student (class_id) values (10) where id=5;
-insert into student (class_id) values (11) where id=5;
-insert into student (class_id) values (12) where id=5;
-insert into student (class_id) values (25) where id=5;
-insert into student (class_id) values (13) where id=6;
-insert into student (class_id) values (14) where id=6;
-insert into student (class_id) values (15) where id=6;
-insert into student (class_id) values (16) where id=7;
-insert into student (class_id) values (17) where id=7;
-insert into student (class_id) values (26) where id=7;
-insert into student (class_id) values (27) where id=7;
-insert into student (class_id) values (18) where id=8;
-insert into student (class_id) values (19) where id=8;
-insert into student (class_id) values (20) where id=8;
-insert into student (class_id) values (22) where id=8;
+update student set class_id=1 where id=1;
+update student set class_id=2 where id=1;
+update student set class_id=3 where id=2;
+update student set class_id=3 where id=2;
+update student set class_id=23 where id=2;
+update student set class_id=4 where id=3;
+update student set class_id=5 where id=3;
+update student set class_id=6 where id=3;
+update student set class_id=21 where id=3;
+update student set class_id=7 where id=4;
+update student set class_id=8 where id=4;
+update student set class_id=9 where id=4;
+update student set class_id=24 where id=4;
+update student set class_id=10 where id=5;
+update student set class_id=11 where id=5;
+update student set class_id=12 where id=5;
+update student set class_id=25 where id=5;
+update student set class_id=13 where id=6;
+update student set class_id=14 where id=6;
+update student set class_id=15 where id=6;
+update student set class_id=16 where id=7;
+update student set class_id=17 where id=7;
+update student set class_id=26 where id=7;
+update student set class_id=27 where id=7;
+update student set class_id=18 where id=8;
+update student set class_id=19 where id=8;
+update student set class_id=20 where id=8;
+update student set class_id=22 where id=8;
 

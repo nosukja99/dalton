@@ -91,12 +91,4 @@ public class Course {
     public void setMajor(Major major) {
         this.major = major;
     }
-
-    public Set<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(Set<Student> students) {
-        this.students = students;
-    }
 }

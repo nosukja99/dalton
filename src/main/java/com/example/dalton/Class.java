@@ -12,11 +12,12 @@ public class Class {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    private String classNum;
+
     private String day;
     private String time;
     private String crn;
     private String semester;
-
 
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -34,18 +35,8 @@ public class Class {
     @OneToMany(mappedBy = "aClass", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<Grade> grades;
 
-<<<<<<< HEAD
     @ManyToMany(mappedBy = "classes")
     private Set<Student> students;
-=======
-    public Set<Grade> getGrades() {
-        return grades;
-    }
-
-    public void setGrades(Set<Grade> grades) {
-        this.grades = grades;
-    }
->>>>>>> e27cbcb788df164855154f5520db2f89f05d23e1
 
     public long getId() {
         return id;
@@ -55,6 +46,13 @@ public class Class {
         this.id = id;
     }
 
+    public String getClassNum() {
+        return classNum;
+    }
+
+    public void setClassNum(String classNum) {
+        this.classNum = classNum;
+    }
 
     public String getDay() {
         return day;
