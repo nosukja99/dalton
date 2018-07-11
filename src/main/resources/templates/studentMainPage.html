@@ -13,30 +13,26 @@
         <td><h4 th:text="${student.major.majorName}"></h4></td>
     </table>
     <h2>Current Class list</h2>
-    <div th:each="course: ${courses}">
+    <div>
         <table>
             <thead>
-            <tr>
-                <td>Course</td>
-                <td>Subject</td>
-                <td>Credit</td>
-                <td>Schedule</td>
-                <td>Instructor</td>
-                <td>Classroom</td>
-                <td></td>
-            </tr>
+                <tr>
+                    <th>Course</th>
+                    <th>Subject</th>
+                    <th>Credit</th>
+                    <th>Instructor</th>
+                    <th>Classroom</th>
+                </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><h4 th:text="${course.courseName}"></h4></td>
-                <td><h4 th:text="${course.subject.subjectName}"></h4></td>
-                <td><h4 th:text="${course.credit}"></h4></td>
-                <td><h4 th:text="${course.class.day}"></h4>, <h4 th:text="${student.course.class.time}"></h4></td>
-                <td><h4 th:text="${course.class.instructor.instructorName}"></h4></td>
-                <td><h4 th:text="${course.class.classroom.buildingName}">,
-                </h4><h4 th:text="${course.class.classroom.roomNum}"></h4></td>
-                <td><a th:href="@{/dropClass/{id} (id=${student.course.class.id})}">Drop</a></td>
-            </tr>
+                <tr th:each="class: ${classes}">
+                    <td><span th:text="${class.course.courseName}"></span></td>
+                    <td><span th:text="${class.course.subject.subjectName}"></span></td>
+                    <td><span th:text="${class.course.credit}"></span></td>
+                    <td><span th:text="${class.instructor.instructorName}"></span></td>
+                    <td><span th:text="${class.classroom.roomNum}"></span></td>
+                    <td><a th:href="@{/dropClass/{id} (id=${class.id})}">Drop</a></td>
+                </tr>
             </tbody>
         </table>
     </div>

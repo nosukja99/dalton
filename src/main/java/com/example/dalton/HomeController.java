@@ -24,6 +24,12 @@ public class HomeController {
     @Autowired
     DepartmentRepository departmentRepository;
 
+    @Autowired
+    ClassRepository classRepository;
+
+    @Autowired
+    ClassroomRepository classroomRepository;
+
     @RequestMapping("/")
     public String index()
     {
@@ -67,6 +73,8 @@ public class HomeController {
         String role = request.getParameter("role");
         if (role.equals("student")) {
             if (studentRepository.countByUserNameAndPassword(username, password) > 0) {
+                Student student = studentRepository.findByUserNameContainingIgnoreCaseAndPassword("WMelon","password").iterator().next();
+                model.addAttribute("classes",classRepository.findAllByStudents(student));
                 model.addAttribute("student", studentRepository.findByUserNameContainingIgnoreCaseAndPassword(username, password).iterator().next());
                 return "studentMainPage";
             } else {
