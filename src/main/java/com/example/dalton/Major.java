@@ -14,7 +14,7 @@ public class Major {
     @OneToMany(mappedBy = "major", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<Course> courses;
 
-    @OneToMany(mappedBy = "major", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "major", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.EAGER)
     public Set<Student> students;
 
 
