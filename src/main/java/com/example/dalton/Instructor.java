@@ -6,7 +6,7 @@ import java.util.Set;
 @Entity
 public class Instructor {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy =GenerationType.AUTO)
     private long id;
 
     private String instructorName;
@@ -59,8 +59,8 @@ public class Instructor {
         return employeeNum;
     }
 
-    public void setEmployeeNum(String employeeNum) {
-        this.employeeNum = employeeNum;
+    public void setEmployeeNum(long num) {
+        this.employeeNum = "em- "+ num;;
     }
 
     public Department getDepartment() {

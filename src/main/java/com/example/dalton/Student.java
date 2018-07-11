@@ -44,7 +44,7 @@ public class Student {
     @JoinColumn(name = "major_id")
     private Major major;
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "student", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.EAGER)
     public Set<Grade> grades;
 
     public long getId() {

@@ -64,7 +64,7 @@ public class HomeController {
         String role = request.getParameter("role");
         if (role.equals("student")) {
             if (studentRepository.countByUserNameAndPassword(username, password) > 0) {
-                model.addAttribute("student", studentRepository.findByUserNameContainingIgnoreCaseAndPassword(username, password));
+                model.addAttribute("student", studentRepository.findByUserNameContainingIgnoreCaseAndPassword(username, password).iterator().next());
                 return "studentMainPage";
             } else {
                 return "login";
@@ -72,7 +72,7 @@ public class HomeController {
         }
         else if (role.equals("instructor")) {
             if (instructorRepository.countByUserNameAndPassword(username, password) > 0) {
-                model.addAttribute("instructor", instructorRepository.findAllByUserNameContainingIgnoreCaseAndPassword(username, password));
+                model.addAttribute("instructor", instructorRepository.findAllByUserNameContainingIgnoreCaseAndPassword(username, password).iterator().next());
                 return "instructorMainPage";
             } else {
                 return "login";
@@ -88,6 +88,24 @@ public class HomeController {
         }
         else
             return "login";
+    }
+
+    @RequestMapping("/updaterole/{id}")
+    public String ChangeRole(@PathVariable("id") long id, Model model)
+    {
+        Student student = studentRepository.findById(id).get();
+        Instructor instructor = new Instructor();
+        instructor.setInstructorName(student.getStudentName());
+        instructor.setUserName(student.getUserName());
+        instructor.setPassword(student.getPassword());
+        //System.out.println("$$$$$$$$$$"+instructor.getInstructorName());
+        instructorRepository.save(instructor);
+        //System.out.println("$$$$$$$$$$"+instructor.getId());
+        instructor.setEmployeeNum(instructor.getId());
+        instructorRepository.save(instructor);
+        studentRepository.deleteById(id);
+        model.addAttribute("students", studentRepository.findAll());
+        return "adminMainPage";
     }
 
 }

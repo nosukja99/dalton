@@ -70,6 +70,22 @@ public class Class {
         this.time = time;
     }
 
+    public String getCrn() {
+        return crn;
+    }
+
+    public void setCrn(String crn) {
+        this.crn = crn;
+    }
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
+
     public Instructor getInstructor() {
         return instructor;
     }
@@ -92,21 +108,6 @@ public class Class {
 
     public void setCourse(Course course) {
         this.course = course;
-    }
-
-    public String getCrn() {
-        return crn;
-    }
-
-    public void setCrn(String crn) {
-        this.crn = crn;
-    }
-    public String getSemester() {
-        return semester;
-    }
-
-    public void setSemester(String semester) {
-        this.semester = semester;
     }
 
     public Set<Grade> getGrades() {
