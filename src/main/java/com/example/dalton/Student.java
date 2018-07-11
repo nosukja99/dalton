@@ -1,12 +1,10 @@
 package com.example.dalton;
 
-
-
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Student {
+public class Student  {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -36,7 +34,7 @@ public class Student {
 
     @ManyToMany
     @JoinTable(
-            name ="STUDENT_CLASS", joinColumns=@JoinColumn(name="STUDENT_NUM", referencedColumnName = "studentNum"),
+            name ="STUDENT_CLASS", joinColumns=@JoinColumn(name="STUDENT_ID", referencedColumnName = "ID"),
             inverseJoinColumns = @JoinColumn(name = "CLASS_ID", referencedColumnName = "ID"))
     private Set<Class> classes;
 
