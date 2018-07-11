@@ -6,5 +6,28 @@
 </head>
 <body>
 <h2>Admin Page</h2>
+    <div th:each="student : ${students}">
+        <table>
+            <thead>
+            <tr>
+                <td>Name</td>
+                <td>Year of Entry</td>
+                <td>Student Number</td>
+                <td>User Name</td>
+                <td>Password</td>
+                <td></td>
+            </tr>
+            </thead>
+            <tbody>
+                <td><h4 th:text="${student.studentName}"></h4></td>
+                <td><h4 th:text="${student.yearEntry}"></h4></td>
+                <td><h4 th:text="${student.studentNum}"></h4></td>
+                <td><h4 th:text="${student.userName}"></h4></td>
+                <td><h4 th:text="${student.password}"></h4></td>
+                <td><a th:href="@{/updaterole/{id} (id=${student.id})}">change role</a></td>
+            </tbody>
+        </table>
+    </div>
+<a href="/showInstructorlist">Instructor List</a>
 </body>
 </html>
