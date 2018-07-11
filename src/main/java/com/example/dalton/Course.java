@@ -28,8 +28,6 @@ public class Course {
     @JoinColumn(name ="major_id")
     private Major major;
 
-
-
     public long getId() {
         return id;
     }
@@ -93,6 +91,4 @@ public class Course {
     public void setMajor(Major major) {
         this.major = major;
     }
-
-
 }

@@ -12,11 +12,12 @@ public class Class {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    private String classNum;
+
     private String day;
     private String time;
     private String crn;
     private String semester;
-
 
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -37,22 +38,6 @@ public class Class {
     @ManyToMany(mappedBy = "classes")
     private Set<Student> students;
 
-    public Set<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(Set<Student> students) {
-        this.students = students;
-    }
-
-    public Set<Grade> getGrades() {
-        return grades;
-    }
-
-    public void setGrades(Set<Grade> grades) {
-        this.grades = grades;
-    }
-
     public long getId() {
         return id;
     }
@@ -61,6 +46,13 @@ public class Class {
         this.id = id;
     }
 
+    public String getClassNum() {
+        return classNum;
+    }
+
+    public void setClassNum(String classNum) {
+        this.classNum = classNum;
+    }
 
     public String getDay() {
         return day;
@@ -76,6 +68,22 @@ public class Class {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getCrn() {
+        return crn;
+    }
+
+    public void setCrn(String crn) {
+        this.crn = crn;
+    }
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
     }
 
     public Instructor getInstructor() {
@@ -102,18 +110,19 @@ public class Class {
         this.course = course;
     }
 
-    public String getCrn() {
-        return crn;
+    public Set<Grade> getGrades() {
+        return grades;
     }
 
-    public void setCrn(String crn) {
-        this.crn = crn;
-    }
-    public String getSemester() {
-        return semester;
+    public void setGrades(Set<Grade> grades) {
+        this.grades = grades;
     }
 
-    public void setSemester(String semester) {
-        this.semester = semester;
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
     }
 }
