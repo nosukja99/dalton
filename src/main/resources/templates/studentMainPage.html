@@ -7,10 +7,10 @@
 <body>
 
     <table>
-        <td><h4 th:text="${studentName}"></h4></td>
-        <td><h4 th:text="${studentNum}"></h4></td>
-        <td><h4 th:text="${yearEntry}"></h4></td>
-        <td><h4 th:text="${major}"></h4></td>
+        <td><h4 th:text="${student.studentName}"></h4></td>
+        <td><h4 th:text="${student.studentNum}"></h4></td>
+        <td><h4 th:text="${student.yearEntry}"></h4></td>
+        <td><h4 th:text="${student.major.majorName}"></h4></td>
     </table>
     <h2>Current Class list</h2>
     <div th:each="course: ${courses}">
