@@ -36,7 +36,7 @@ public class Student {
 
     @ManyToMany
     @JoinTable(
-            name ="STUDENT_CLASS", joinColumns=@JoinColumn(name="STUDENT_NUM", referencedColumnName = "studentNum"),
+            name ="STUDENT_CLASS", joinColumns=@JoinColumn(name="STUDENT_ID", referencedColumnName = "ID"),
             inverseJoinColumns = @JoinColumn(name = "CLASS_ID", referencedColumnName = "ID"))
     private Set<Class> classes;
 
