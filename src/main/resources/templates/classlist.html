@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>Current Class:</td>
+    </tr>
+    <tr>
+        <td>classNum </td>
+        <td>day </td>
+        <td>time </td>
+        <td>instructor </td>
+        <td>
+            classroom
+        </td>
+    </tr>
+    <tr>
+
+        <td><span th:text="${class.classNum}"></span></td>
+
+
+        <td><span th:text="${class.day}"></span></td>
+
+
+        <td><span th:text="${class.time}"></span></td>
+
+
+        <td><span th:text="${class.instructor}"></span></span></td>
+
+
+        <td><span th:text="${class.classroom}"></span></span></td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -21,6 +21,9 @@ public class HomeController {
     @Autowired
     InstructorRepository instructorRepository;
 
+    @Autowired
+    DepartmentRepository departmentRepository;
+
     @RequestMapping("/")
     public String index()
     {
@@ -98,14 +101,29 @@ public class HomeController {
         instructor.setInstructorName(student.getStudentName());
         instructor.setUserName(student.getUserName());
         instructor.setPassword(student.getPassword());
+        studentRepository.deleteById(id);
         //System.out.println("$$$$$$$$$$"+instructor.getInstructorName());
+        model.addAttribute("instructor", instructor);
+        model.addAttribute("departments", departmentRepository.findAll());
+        return "instructorform";
+    }
+
+    @RequestMapping("/addInstructor")
+    public String processInstructor(@ModelAttribute Instructor instructor, Model model)
+    {
         instructorRepository.save(instructor);
         //System.out.println("$$$$$$$$$$"+instructor.getId());
         instructor.setEmployeeNum(instructor.getId());
         instructorRepository.save(instructor);
-        studentRepository.deleteById(id);
         model.addAttribute("students", studentRepository.findAll());
         return "adminMainPage";
+    }
+
+    @RequestMapping("/showInstructorlist")
+    public String showInstructorList(Model model)
+    {
+        model.addAttribute("instructors", instructorRepository.findAll());
+        return "instructorlist";
     }
 
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/addInstructor" th:object="${instructor}">
+     <input type="hidden" th:field="*{id}">
+     Instructor Name: <input type="text" th:field="*{instructorName}"><br/>
+     Username: <input type="text" th:field="*{userName}"><br/>
+     Password: <input type="text" th:field="*{password}"><br/>
+
+     <label for="departmentInput"><strong>Department</strong></label>
+     <select class="form-control" id="departmentInput" th:field="*{department}">
+
+         <option th:each="department : ${departments}"
+                 th:value="${department.id}"
+                 th:utext="${department.departmentName}"/>
+     </select>
+
+    <button type="submit">Click</button>
+</form>
+</body>
+</html>
