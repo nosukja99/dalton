@@ -6,5 +6,42 @@
 </head>
 <body>
 
+    <table>
+        <td><h4 th:text="${student.studentName}"></h4></td>
+        <td><h4 th:text="${student.studentNum}"></h4></td>
+        <td><h4 th:text="${student.yearEntry}"></h4></td>
+        <td><h4 th:text="${student.major}"></h4></td>
+    </table>
+    <h2>Current Class list</h2>
+    <div th:each="course: ${student.courses}">
+        <table>
+            <thead>
+            <tr>
+                <td>Course</td>
+                <td>Subject</td>
+                <td>Credit</td>
+                <td>Schedule</td>
+                <td>Instructor</td>
+                <td>Classroom</td>
+                <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><h4 th:text="${student.course.courseName}"></h4></td>
+                <td><h4 th:text="${student.course.subject.subjectName}"></h4></td>
+                <td><h4 th:text="${student.course.credit}"></h4></td>
+                <td><h4 th:text="${student.course.class.day}"></h4>, <h4 th:text="${student.course.class.time}"></h4></td>
+                <td><h4 th:text="${student.course.class.instructor.instructorName}"></h4></td>
+                <td><h4 th:text="${student.course.class.classroom.buildingName}">,
+                </h4><h4 th:text="${student.course.class.classroom.roomNum}"></h4></td>
+                <td><a th:href="@{/dropClass/{id} (id=${student.course.class.id})}">Drop</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <a th:href="{/showSchedule/{id} (id=${student.id})}">Show Schedule</a>
+    <a th:href="{/addClassed/{id} (id=${student.id})}">Add more class</a>
+    <a th:href="{/showTranscript/{id} (id=${student.id})}">Transcript</a>
 </body>
 </html>

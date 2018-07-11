@@ -57,12 +57,14 @@ public class HomeController {
     }
 
     @PostMapping("/loginsystem")
-    public String processLogin(HttpServletRequest request) {
+    public String processLogin(HttpServletRequest request, Model model)
+    {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String role = request.getParameter("role");
         if (role.equals("student")) {
             if (studentRepository.countByUserNameAndPassword(username, password) > 0) {
+                model.addAttribute("student", studentRepository.findByUserNameContainingIgnoreCaseAndPassword(username, password));
                 return "studentMainPage";
             } else {
                 return "login";
@@ -70,6 +72,7 @@ public class HomeController {
         }
         else if (role.equals("instructor")) {
             if (instructorRepository.countByUserNameAndPassword(username, password) > 0) {
+                model.addAttribute("instructor", instructorRepository.findAllByUserNameContainingIgnoreCaseAndPassword(username, password));
                 return "instructorMainPage";
             } else {
                 return "login";
@@ -77,6 +80,7 @@ public class HomeController {
         }
         else if (role.equals("admin")) {
             if (username.equals("admin") && password.equals("password")) {
+                model.addAttribute("students", studentRepository.findAll());
                 return "adminMainPage";
             } else {
                 return "login";
