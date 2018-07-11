@@ -11,14 +11,12 @@ public class Major {
 
     private String majorName;
 
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "major", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<Course> courses;
 
-    @ManyToMany
-    @JoinTable(
-            name="major_student", joinColumns =@JoinColumn (name ="Major_ID", referencedColumnName ="ID"),
-            inverseJoinColumns = @JoinColumn(name="Studnet_ID", referencedColumnName ="ID"))
-    private Set<Student> students;
+    @OneToMany(mappedBy = "major", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    public Set<Student> students;
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "department_id")

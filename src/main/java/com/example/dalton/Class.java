@@ -3,6 +3,7 @@ package com.example.dalton;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 public class Class {
@@ -15,6 +16,10 @@ public class Class {
 
     private String day;
     private String time;
+    private String crn;
+    private String semester;
+
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name ="instructor_id")
@@ -27,6 +32,9 @@ public class Class {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name ="course_id")
     private Course course;
+
+    @OneToMany(mappedBy = "aClass", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    public Set<Grade> grades;
 
     public long getId() {
         return id;
@@ -82,5 +90,20 @@ public class Class {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    public String getCrn() {
+        return crn;
+    }
+
+    public void setCrn(String crn) {
+        this.crn = crn;
+    }
+    public String getSemester() {
+        return semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
     }
 }

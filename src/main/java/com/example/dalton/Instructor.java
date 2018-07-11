@@ -12,11 +12,31 @@ public class Instructor {
     private String instructorName;
     private String employeeNum;
 
+    private String userName;
+    private String password;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="department_id")
     private Department department;
 
-    @OneToMany(mappedBy = "class", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<Class> classes;
 
     public long getId() {

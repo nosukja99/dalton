@@ -11,11 +11,12 @@ public class Subject {
 
     private String subjectName;
 
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<Course> courses;
-    
+
     @ManyToMany(mappedBy = "students")
     private Set<Major> majors;
+
 
     public long getId() {
         return id;

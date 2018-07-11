@@ -17,7 +17,7 @@ public class Course {
 
     private double credit;
 
-    @OneToMany(mappedBy = "class", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<Class> classes;
 
     @ManyToOne(fetch = FetchType.EAGER)

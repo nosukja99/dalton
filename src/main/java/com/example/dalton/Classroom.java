@@ -11,8 +11,9 @@ public class Classroom {
 
     private String buildingName;
     private int MaxCapacity;
+    private String roomNum;
 
-    @OneToMany(mappedBy = "class", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "classroom", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<Class> classes;
 
     public long getId() {
@@ -45,5 +46,13 @@ public class Classroom {
 
     public void setClasses(Set<Class> classes) {
         this.classes = classes;
+    }
+
+    public String getRoomNum() {
+        return roomNum;
+    }
+
+    public void setRoomNum(String roomNum) {
+        this.roomNum = roomNum;
     }
 }

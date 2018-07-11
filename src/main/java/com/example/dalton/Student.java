@@ -13,7 +13,26 @@ public class Student {
 
     private String studentName;
     private String yearEntry;
+
     private String studentNum;
+    private String userName;
+    private String password;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @ManyToMany
     @JoinTable(
@@ -21,11 +40,12 @@ public class Student {
             inverseJoinColumns = @JoinColumn(name = "COURSE_ID", referencedColumnName = "ID"))
     private Set<Course> courses;
 
-    @ManyToMany
-    @JoinTable(
-            name ="STUDENT_MAJOR", joinColumns=@JoinColumn(name="STUDENT_ID", referencedColumnName = "ID"),
-            inverseJoinColumns = @JoinColumn(name = "MAJOR_ID", referencedColumnName = "ID"))
-    private Set<Major> majors;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "major_id")
+    private Major major;
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    public Set<Grade> grades;
 
     public long getId() {
         return id;
@@ -43,6 +63,7 @@ public class Student {
         this.studentName = studentName;
     }
 
+
     public String getYearEntry() {
         return yearEntry;
     }
@@ -55,8 +76,8 @@ public class Student {
         return studentNum;
     }
 
-    public void setStudentNum(String studentNum) {
-        this.studentNum = studentNum;
+    public void setStudentNum(long num) {
+        this.studentNum = "st- "+ num;
     }
 
     public Set<Course> getCourses() {
@@ -67,11 +88,15 @@ public class Student {
         this.courses = courses;
     }
 
-    public Set<Major> getMajors() {
-        return majors;
+    public void setStudentNum(String studentNum) {
+        this.studentNum = studentNum;
     }
 
-    public void setMajors(Set<Major> majors) {
-        this.majors = majors;
+    public Major getMajor() {
+        return major;
+    }
+
+    public void setMajor(Major major) {
+        this.major = major;
     }
 }

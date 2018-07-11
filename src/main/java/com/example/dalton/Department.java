@@ -13,6 +13,8 @@ public class Department {
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<Instructor> instructors;
+
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<Major> majors;
 
     public long getId() {
