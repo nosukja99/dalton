@@ -36,6 +36,9 @@ public class Class {
     @OneToMany(mappedBy = "aClass", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<Grade> grades;
 
+    @ManyToMany(mappedBy = "classes")
+    private Set<Student> students;
+
     public long getId() {
         return id;
     }
@@ -105,5 +108,21 @@ public class Class {
 
     public void setSemester(String semester) {
         this.semester = semester;
+    }
+
+    public Set<Grade> getGrades() {
+        return grades;
+    }
+
+    public void setGrades(Set<Grade> grades) {
+        this.grades = grades;
+    }
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
     }
 }

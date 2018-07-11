@@ -105,3 +105,65 @@ insert into student (id, major_id, student_num, student_name, year_entry, user_n
 insert into student (id, major_id, student_num, student_name, year_entry, user_name, password) values (6,6,"ST0006","Bob Frapples","2016","BFrapples","password");
 insert into student (id, major_id, student_num, student_name, year_entry, user_name, password) values (7,7,"ST0007","Walter Melon","2017","WMelon","password");
 insert into student (id, major_id, student_num, student_name, year_entry, user_name, password) values (8,8,"ST0008","MGreta Life","2012","GLife","password");
+
+insert into grade(id, grade, class_id, student_id) values (1,"A",1,1);
+insert into grade(id, grade, class_id, student_id) values (2,"C",2,1);
+insert into grade(id, grade, class_id, student_id) values (3,"F",2,2);
+insert into grade(id, grade, class_id, student_id) values (4,"B",3,2);
+insert into grade(id, grade, class_id, student_id) values (5,"A",4,3);
+insert into grade(id, grade, class_id, student_id) values (6,"A",5,3);
+insert into grade(id, grade, class_id, student_id) values (7,"A",6,3);
+insert into grade(id, grade, class_id, student_id) values (8,"D",7,4);
+insert into grade(id, grade, class_id, student_id) values (9,"B",8,4);
+insert into grade(id, grade, class_id, student_id) values (10,"A",10,5);
+insert into grade(id, grade, class_id, student_id) values (11,"C",11,5);
+insert into grade(id, grade, class_id, student_id) values (12,"A",13,6);
+insert into grade(id, grade, class_id, student_id) values (13,"D",14,6);
+insert into grade(id, grade, class_id, student_id) values (14,"B",16,7);
+insert into grade(id, grade, class_id, student_id) values (15,"A",17,7);
+insert into grade(id, grade, class_id, student_id) values (16,"B",18,8);
+insert into grade(id, grade, class_id, student_id) values (17,"A",19,8);
+insert into grade(id, grade, class_id, student_id) values (18,"B",20,8);
+insert into grade(id, grade, class_id, student_id) values (19,"B",21,3);
+insert into grade(id, grade, class_id, student_id) values (20,"A",9,4);
+insert into grade(id, grade, class_id, student_id) values (21,"A",12,5);
+insert into grade(id, grade, class_id, student_id) values (22,"C",15,6);
+insert into grade(id, grade, class_id, student_id) values (23,"B",22,8);
+insert into grade(id, grade, class_id, student_id) values (24,"B",23,2);
+insert into grade(id, grade, class_id, student_id) values (25,"B",24,4);
+insert into grade(id, grade, class_id, student_id) values (26,"B",25,5);
+insert into grade(id, grade, class_id, student_id) values (27,"B",26,7);
+insert into grade(id, grade, class_id, student_id) values (28,"B",27,7);
+
+update student add class_id bigint(20)
+foreign key(class_id) references class(id)
+
+insert into student (class_id) values (1) where id=1;
+insert into student (class_id) values (2) where id=1;
+insert into student (class_id) values (3) where id=2;
+insert into student (class_id) values (3) where id=2;
+insert into student (class_id) values (23) where id=2;
+insert into student (class_id) values (4) where id=3;
+insert into student (class_id) values (5) where id=3;
+insert into student (class_id) values (6) where id=3;
+insert into student (class_id) values (21) where id=3;
+insert into student (class_id) values (7) where id=4;
+insert into student (class_id) values (8) where id=4;
+insert into student (class_id) values (9) where id=4;
+insert into student (class_id) values (24) where id=4;
+insert into student (class_id) values (10) where id=5;
+insert into student (class_id) values (11) where id=5;
+insert into student (class_id) values (12) where id=5;
+insert into student (class_id) values (25) where id=5;
+insert into student (class_id) values (13) where id=6;
+insert into student (class_id) values (14) where id=6;
+insert into student (class_id) values (15) where id=6;
+insert into student (class_id) values (16) where id=7;
+insert into student (class_id) values (17) where id=7;
+insert into student (class_id) values (26) where id=7;
+insert into student (class_id) values (27) where id=7;
+insert into student (class_id) values (18) where id=8;
+insert into student (class_id) values (19) where id=8;
+insert into student (class_id) values (20) where id=8;
+insert into student (class_id) values (22) where id=8;
+

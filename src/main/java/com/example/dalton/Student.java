@@ -36,9 +36,9 @@ public class Student {
 
     @ManyToMany
     @JoinTable(
-            name ="STUDENT_COURSE", joinColumns=@JoinColumn(name="STUDENT_ID", referencedColumnName = "ID"),
-            inverseJoinColumns = @JoinColumn(name = "COURSE_ID", referencedColumnName = "ID"))
-    private Set<Course> courses;
+            name ="STUDENT_CLASS", joinColumns=@JoinColumn(name="STUDENT_ID", referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "CLASS_ID", referencedColumnName = "ID"))
+    private Set<Class> classes;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "major_id")
@@ -80,12 +80,20 @@ public class Student {
         this.studentNum = "st- "+ num;
     }
 
-    public Set<Course> getCourses() {
-        return courses;
+    public Set<Class> getClasses() {
+        return classes;
     }
 
-    public void setCourses(Set<Course> courses) {
-        this.courses = courses;
+    public void setClasses(Set<Class> classes) {
+        this.classes = classes;
+    }
+
+    public Set<Grade> getGrades() {
+        return grades;
+    }
+
+    public void setGrades(Set<Grade> grades) {
+        this.grades = grades;
     }
 
     public void setStudentNum(String studentNum) {

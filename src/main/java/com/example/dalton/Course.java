@@ -28,9 +28,6 @@ public class Course {
     @JoinColumn(name ="major_id")
     private Major major;
 
-    @ManyToMany(mappedBy = "courses")
-    private Set<Student> students;
-
     public long getId() {
         return id;
     }
