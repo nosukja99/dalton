@@ -13,22 +13,31 @@ import javax.validation.Valid;
 public class HomeController {
 
     @Autowired
-    StudentRepository studentRepository;
+    ClassRepository classRepository;
 
     @Autowired
-    MajorRepository majorRepository;
+    ClassroomRepository classroomRepository;
 
     @Autowired
-    InstructorRepository instructorRepository;
+    CourseRepository courseRepository;
 
     @Autowired
     DepartmentRepository departmentRepository;
 
     @Autowired
-    ClassRepository classRepository;
+    GradeRepository gradeRepository;
 
     @Autowired
-    ClassroomRepository classroomRepository;
+    InstructorRepository instructorRepository;
+
+    @Autowired
+    MajorRepository majorRepository;
+
+    @Autowired
+    StudentRepository studentRepository;
+
+    @Autowired
+    SubjectRepository subjectRepository;
 
     @RequestMapping("/")
     public String index()
@@ -84,6 +93,9 @@ public class HomeController {
         else if (role.equals("instructor")) {
             if (instructorRepository.countByUserNameAndPassword(username, password) > 0) {
                 model.addAttribute("instructor", instructorRepository.findAllByUserNameContainingIgnoreCaseAndPassword(username, password).iterator().next());
+                Instructor i = instructorRepository.findFirstInstructorByUserName(username);
+                long num = i.getId();
+                model.addAttribute("classes",classRepository.findAllByInstructorId(num));
                 return "instructorMainPage";
             } else {
                 return "login";
